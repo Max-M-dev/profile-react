@@ -2,6 +2,7 @@
 @import "vars";
 @import "fonts";
 @import "libs";
+@import "kit";
 
 ::placeholder {
   color: #666;
@@ -47,95 +48,6 @@ body {
   @media screen and (max-width: 550px) {
     padding: 0 math.div($gutter * 2, 2) + px;
   }
-}
-
-%user-avatar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #e6e6e6;
-  border-radius: 100%;
-  background-color: #f3f3f3;
-  object-fit: cover;
-  font-weight: 400;
-}
-.user-avatar-small {
-  @extend %user-avatar;
-  width: 50px;
-  height: 50px;
-  font-size: 18px;
-}
-.user-avatar-big {
-  @extend %user-avatar;
-  width: 100px;
-  height: 100px;
-  font-size: 36px;
-}
-
-.user-avatar-hover {
-  position: relative;
-
-  &:hover::before {
-    visibility: none;
-    content: "";
-    position: absolute;
-    background: #000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-  }
-  &:hover::after {
-    content: "";
-    background: url("../../img/camera.svg") no-repeat;
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-size: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-.button-default {
-  background: #ffffff;
-  border: 1px solid #d5d5d5;
-  border-radius: 5px;
-  font-weight: 500;
-  color: black;
-  padding: 7px 22px;
-  transition: 0.5s;
-  line-height: 1.6;
-  white-space: nowrap;
-  &:hover {
-    box-shadow: 0px 0px 10px -3px rgb(0 0 0 / 50%);
-  }
-}
-
-%button-icon-template {
-  vertical-align: middle;
-  padding-right: 10px;
-  line-height: 0px;
-}
-.button-icon-entry {
-  &::before {
-    content: url("../../img/entry.svg");
-    @extend %button-icon-template;
-  }
-}
-.button-icon-edit {
-  &::before {
-    content: url("../../img/pen-solid.svg");
-    @extend %button-icon-template;
-  }
-}
-.img-responsive {
-  display: block;
-  max-width: 100%;
-  height: auto;
 }
 
 .wrapper {
@@ -247,12 +159,7 @@ main {
     gap: 15px;
   }
   &__input {
-    width: 100%;
-    height: 50px;
-    border: solid 1px #838383;
-    border-radius: 5px;
     padding: 12px 20px 12px 55px;
-    position: relative;
     background-position: 25px 50%;
     background-repeat: no-repeat;
     background-origin: border-box;
@@ -343,6 +250,7 @@ main {
 .account {
   &__cover {
     height: 200px;
+    overflow: hidden;
   }
   &__body {
     position: relative;
@@ -378,9 +286,6 @@ main {
     transform: translate(0px, -50%);
   }
   &__name {
-    font-size: 30px;
-    font-weight: 500;
-    color: #000;
   }
   &__email {
     color: $gray;
@@ -391,5 +296,73 @@ main {
   }
   &__text {
     padding-bottom: 60px;
+  }
+}
+
+.edit-profile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 72%);
+  &__modal {
+    width: 100%;
+    max-width: 600px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    overflow-y: auto;
+    @media screen and (max-width: 550px) {
+      max-height: 100vh;
+    }
+  }
+  &__title {
+    margin-bottom: 25px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  &__label {
+    color: $gray;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  &__input {
+  }
+  &__input-email-wrapper {
+    &:focus,
+    &:hover {
+      box-shadow: $boxShodowInput;
+    }
+  }
+  &__input-email {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    &:focus,
+    &:hover {
+      box-shadow: none;
+    }
+  }
+  &__textarea {
+    min-height: 150px;
+  }
+  &__buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+  }
+  &__button {
+    width: 100%;
   }
 }

@@ -1,0 +1,38 @@
+<div class="edit-profile hidden">
+  <div class="edit-profile__modal modal">
+    <div class="edit-profile__content">
+      <div class="edit-profile__title title">Редактировать профиль</div>
+      <iv class="edit-profile__form">
+				<div class="edit-profile__input-wrapper">
+        <label for="userName" class="edit-profile__label">Имя</label>
+        <input
+          id="userName"
+          name="name"
+          type="text"
+          class="edit-profile__input input-default"
+        />
+			</div>
+			<div class="edit-profile__input-wrapper">
+        <label for="userUrl" class="edit-profile__label">Адрес профиля</label>
+				<div class="edit-profile__input-email-wrapper input-prefix" data-url="example.com/">
+        <input
+          id="userUrl"
+          type="text"
+          class="edit-profile__input edit-profile__input-email input-default"
+        />
+			</div>
+		</div>
+				<div class="edit-profile__input-wrapper">
+        <label for="userDescription" class="edit-profile__label"
+          >Описание</label
+        >
+        <textarea id="userDescription" class="edit-profile__input edit-profile__textarea input-default"></textarea>
+			</div>
+        <div class="edit-profile__buttons">
+          <button class="button-default edit-profile__button">Отмена</button>
+          <button class="button-default-negativ edit-profile__button">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
