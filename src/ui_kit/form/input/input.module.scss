@@ -1,0 +1,30 @@
+@import "../../../scss/vars";
+
+.input-default {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	padding: 12px 20px;
+	border: solid 1px $gray;
+	border-radius: 5px;
+	&::placeholder {
+		color: #838383;
+	}
+	&:focus,
+	&:hover {
+		box-shadow: $boxShodowInput;
+	}
+}
+
+.wrapper-icon {
+	position: relative;
+}
+.icon {
+	position: absolute;
+	top: 50%;
+	left: 25px;
+	transform: translate(0, -50%);
+}
+.input-with-icon {
+	padding: 12px 20px 12px 55px;
+}

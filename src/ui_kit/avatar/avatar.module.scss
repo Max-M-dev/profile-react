@@ -1,0 +1,57 @@
+@import "../../scss/vars";
+%user-avatar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid $strokesSecondary;
+	border-radius: 100%;
+	background-color: $backgroundSecondary;
+	object-fit: cover;
+	font-weight: 400;
+	& > img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 100%;
+	}
+}
+.user-avatar-small {
+	@extend %user-avatar;
+	width: 50px;
+	height: 50px;
+	font-size: 18px;
+}
+.user-avatar-big {
+	@extend %user-avatar;
+	width: 100px;
+	height: 100px;
+	font-size: 36px;
+}
+
+.user-avatar-hover {
+	position: relative;
+
+	&:hover::before {
+		visibility: none;
+		content: "";
+		position: absolute;
+		background: $black;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+	}
+	&:hover::after {
+		content: "";
+		background: url("../../img/camera.svg") no-repeat;
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-size: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

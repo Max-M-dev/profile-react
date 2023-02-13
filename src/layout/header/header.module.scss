@@ -1,0 +1,37 @@
+@import "../../scss/vars";
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex: 0 0 80px;
+	width: 100%;
+	padding: 0 20px;
+	border-bottom: solid 1px $strokesSecondary;
+	&__info-company {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+	&__title {
+		font-weight: 400;
+		width: 225px;
+		@media screen and (max-width: 550px) {
+			display: none;
+		}
+	}
+
+	&__user {
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__user-avatar {
+		position: relative;
+		&:hover .header__user-avatar-hover-upload {
+			display: block;
+		}
+	}
+}

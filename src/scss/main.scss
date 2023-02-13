@@ -5,402 +5,273 @@
 @import "kit";
 
 ::placeholder {
-  color: #666;
+	color: #666;
 }
 ::selection {
-  background-color: $accent;
-  color: $black;
+	background-color: $accent;
+	color: $black;
 }
 * {
-  transition: 0.5s;
-  box-sizing: border-box;
-  // border: solid 1px tomato;
+	transition: 0.5s;
+	box-sizing: border-box;
+	// border: solid 1px tomato;
 }
 
 input,
 textarea {
-  outline: none;
-  &:focus:required:invalid {
-    border-color: red;
-  }
-  &:required:valid {
-    border-color: green;
-  }
+	outline: none;
+	&:focus:required:invalid {
+		border-color: red;
+	}
+	&:required:valid {
+		border-color: green;
+	}
 }
 html {
-  color: $black;
-  height: 100%;
-  font-size: 16px;
-  line-height: 1.6;
+	color: $black;
+	height: 100%;
+	font-size: 16px;
+	line-height: 1.6;
 }
 body {
-  min-width: 375px;
-  font-family: "Inter";
-  overflow-x: hidden;
-  height: 100%;
+	min-width: 375px;
+	font-family: "Inter";
+	overflow-x: hidden;
+	height: 100%;
+}
+#root {
+	height: 100%;
 }
 // Custom Sass / Remove before use
 
 .container {
-  max-width: 1280px;
-  padding: 0 math.div($gutter, 2) + px;
-  margin: 0 auto;
-  width: 100%;
-  @media screen and (max-width: 550px) {
-    padding: 0 math.div($gutter * 2, 2) + px;
-  }
+	max-width: 1280px;
+	padding: 0 math.div($gutter, 2) + px;
+	margin: 0 auto;
+	width: 100%;
+	@media screen and (max-width: 550px) {
+		padding: 0 math.div($gutter * 2, 2) + px;
+	}
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex: 0 0 80px;
-  width: 100%;
-  padding: 0 20px;
-  border-bottom: solid 1px $strokesSecondary;
-  &__info-company {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  &__title {
-    font-weight: 400;
-    width: 225px;
-    @media screen and (max-width: 550px) {
-      display: none;
-    }
-  }
-  &__guest {
-    width: 114px;
-    height: 40px;
-    background: none;
-    font-weight: 500;
-    border: 1px solid $strokesPrimary;
-    border-radius: 5px;
-    cursor: pointer;
-    &:hover {
-      background: $accent;
-    }
-  }
-  &__user {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &__user-avatar {
-    position: relative;
-    &:hover .header__user-avatar-hover-upload {
-      display: block;
-    }
-  }
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 main {
-  flex: 1 1 auto;
+	flex: 1 1 auto;
 }
 .footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 72px;
-  width: 100%;
-  border-top: solid 1px $strokesSecondary;
-  &__content {
-    color: #838383;
-  }
-  &__link-login {
-    color: $black;
-    text-decoration: none;
-  }
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 0 0 72px;
+	width: 100%;
+	border-top: solid 1px $strokesSecondary;
+	&__content {
+		color: #838383;
+	}
+	&__link-login {
+		color: $black;
+		text-decoration: none;
+	}
 }
 
 .form-entry {
-  background-color: $backgroundSecondary;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media screen and (max-width: 550px) {
-    background-color: initial;
-  }
-  &__wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    padding: 30px;
-    background: $backgroundPrimary;
-    border: 1px solid $strokesSecondary;
-    border-radius: 5px;
-    @media screen and (max-width: 550px) {
-      width: auto;
-      padding: 0px;
-      border: none;
-    }
-  }
-  &__title {
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 140%;
-    margin-bottom: 25px;
-  }
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  &__input {
-    padding: 12px 20px 12px 55px;
-    background-position: 25px 50%;
-    background-repeat: no-repeat;
-    background-origin: border-box;
-    &::placeholder {
-      color: #838383;
-    }
-    &::before {
-      position: absolute;
-      top: 15px;
-      left: 25px;
-    }
-    &-user {
-      background-image: url("../../img/user.svg");
-    }
-    &-email {
-      background-image: url("../../img/email.svg");
-    }
-    &-password {
-      background-image: url("../../img/lock.svg");
-      padding-right: 55px;
-      @media screen and (max-width: 550px) {
-        padding-right: 70px;
-      }
-    }
-  }
-  &__input-password-wrapper {
-    position: relative;
-  }
-  &__input-password-eye {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    &:hover svg path {
-      fill: $black;
-    }
-    & svg path {
-      fill: $gray;
-    }
-  }
-  &__submit {
-    height: 50px;
-    margin-top: 10px;
-    background: $black;
-    color: $backgroundPrimary;
-    border-radius: 5px;
-    border: none;
-  }
-  &__submit--disable {
-    background: #d5d5d5;
-  }
+	background-color: $backgroundSecondary;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@media screen and (max-width: 550px) {
+		background-color: initial;
+	}
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		width: 400px;
+		padding: 30px;
+		background: $backgroundPrimary;
+		border: 1px solid $strokesSecondary;
+		border-radius: 5px;
+		@media screen and (max-width: 550px) {
+			width: auto;
+			padding: 0px;
+			border: none;
+		}
+	}
+	&__title {
+		font-weight: 500;
+		font-size: 30px;
+		line-height: 140%;
+		margin-bottom: 25px;
+	}
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		width: 100%;
+	}
+	&__input {
+		&-password {
+			padding-right: 70px;
+
+			@media screen and (max-width: 550px) {
+			}
+		}
+	}
+	&__input-password-wrapper {
+		position: relative;
+	}
+	&__input-password-eye {
+		position: absolute;
+		top: 50%;
+		right: 20px;
+		transform: translate(-50%, -50%);
+		cursor: pointer;
+		&:hover svg path {
+			fill: $black;
+		}
+		& svg path {
+			fill: $gray;
+		}
+	}
+	&__input-password-eye--show {
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(45deg);
+			width: 24px;
+			height: 2px;
+			background: $gray;
+		}
+		&:hover::before {
+			background: $black;
+		}
+	}
 }
 
-.cover {
-  background: $backgroundSecondary;
-  border-bottom: 1px solid $strokesSecondary;
-  position: relative;
-  &__button {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    &:after {
-      content: url("../../img/picture.svg");
-      line-height: 0px;
-      vertical-align: middle;
-      padding-left: 10px;
-    }
-    &--upload::before {
-      content: url("../../img/upload.svg");
-      line-height: 0px;
-      vertical-align: middle;
-      padding-right: 10px;
-    }
-    &--del::before {
-      content: url("../../img/trash.svg");
-      line-height: 0px;
-      vertical-align: middle;
-      padding-right: 10px;
-    }
-  }
-  &:hover .cover__button {
-    display: inline-block;
-  }
-}
 .account {
-  &__cover {
-    height: 200px;
-    overflow: hidden;
-  }
-  &__body {
-    position: relative;
-    padding-top: 85px;
-    padding-bottom: 100px;
-  }
-  &__content {
-    padding-left: 20vw;
-    @media screen and (max-width: 800px) {
-      padding: 0 15px;
-    }
-  }
-  &__content-head {
-    display: flex;
-    gap: 15px;
-    max-width: 784px;
-    @media screen and (max-width: 550px) {
-      flex-direction: column;
-    }
-  }
-  &__user-info {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  &__edit-wrapper {
-    flex: 0 0 auto;
-  }
-  &__avatar {
-    position: absolute;
-    top: 0;
-    transform: translate(0px, -50%);
-  }
-  &__name {
-  }
-  &__email {
-    color: $gray;
-  }
-  &__content-body {
-    padding-top: 30px;
-    max-width: 600px;
-  }
-  &__text {
-    padding-bottom: 60px;
-  }
+	&__cover {
+		height: 200px;
+		overflow: hidden;
+	}
+	&__body {
+		position: relative;
+		// padding-top: 85px;
+		padding-bottom: 100px;
+	}
+	&__content {
+		padding-left: 20vw;
+		@media screen and (max-width: 800px) {
+			padding: 0 15px;
+		}
+	}
+	&__content-head {
+		display: flex;
+		gap: 15px;
+		max-width: 784px;
+		@media screen and (max-width: 550px) {
+			flex-direction: column;
+		}
+	}
+	&__user-info {
+		flex: 1 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	&__edit-wrapper {
+		flex: 0 0 auto;
+	}
+	&__avatar {
+		position: absolute;
+		top: 0;
+		transform: translate(0px, -50%);
+	}
+
+	&__email {
+		color: $gray;
+	}
+	&__content-body {
+		padding-top: 30px;
+		max-width: 600px;
+	}
+	&__text {
+		padding-bottom: 60px;
+	}
 }
 
 .edit-profile {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgb(0 0 0 / 72%);
-  &__modal {
-    width: 100%;
-    max-width: 600px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    overflow-y: auto;
-    @media screen and (max-width: 550px) {
-      max-height: 100vh;
-    }
-  }
-  &__title {
-    margin-bottom: 25px;
-  }
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  &__label {
-    color: $gray;
-    font-weight: 500;
-    font-size: 16px;
-  }
-  &__input-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  &__input {
-  }
-  &__input-email-wrapper {
-    &:focus,
-    &:hover {
-      box-shadow: $boxShodowInput;
-    }
-  }
-  &__input-email {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    &:focus,
-    &:hover {
-      box-shadow: none;
-    }
-  }
-  &__textarea {
-    min-height: 150px;
-  }
-  &__buttons {
-    margin-top: 25px;
-    display: flex;
-    gap: 10px;
-  }
-  &__button {
-    width: 100%;
-  }
-}
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgb(0 0 0 / 72%);
+	&__modal {
+		width: 100%;
+		max-width: 600px;
+		position: absolute;
+		transform: translate(-50%, -50%);
+		top: 50%;
+		left: 50%;
+		overflow-y: auto;
+		@media screen and (max-width: 550px) {
+			max-height: 100vh;
+		}
+	}
+	&__title {
+		margin-bottom: 25px;
+	}
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+	&__label {
+		color: $gray;
+		font-weight: 500;
+		font-size: 16px;
+	}
+	&__input-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
 
-.list-user {
-  margin: 0 auto;
-  margin-top: 50px;
-  width: 100%;
-  max-width: 800px;
-  &__title {
-    margin-bottom: 30px;
-  }
-  &__entity {
-    display: flex;
-    width: 100%;
-    gap: 20px;
-    padding: 20px 0;
-    border-bottom: 1px solid $strokesSecondary;
-
-    &:first-child {
-      border-top: 1px solid $strokesSecondary;
-    }
-  }
-  &__info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1 1 auto;
-    @media screen and (max-width: 550px) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
-  &__name {
-    font-weight: 500;
-  }
-  &__email {
-    color: $gray;
-  }
+	&__input-email-wrapper {
+		&:focus,
+		&:hover {
+			box-shadow: $boxShodowInput;
+		}
+	}
+	&__input-email {
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+		&:focus,
+		&:hover {
+			box-shadow: none;
+		}
+	}
+	&__textarea {
+		min-height: 150px;
+	}
+	&__buttons {
+		margin-top: 25px;
+		display: flex;
+		gap: 10px;
+	}
+	&__button {
+		width: 100%;
+	}
 }

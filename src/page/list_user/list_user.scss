@@ -1,0 +1,40 @@
+@import "../../scss/vars";
+
+.list-user {
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 100%;
+	max-width: 800px;
+	&__title {
+		margin-bottom: 30px;
+	}
+	&__entity {
+		display: flex;
+		width: 100%;
+		gap: 20px;
+		padding: 20px 0;
+		border-bottom: 1px solid $strokesSecondary;
+
+		&:first-child {
+			border-top: 1px solid $strokesSecondary;
+		}
+	}
+	&__info {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex: 1 1 auto;
+		@media screen and (max-width: 550px) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+	&__name {
+		font-weight: 500;
+		text-decoration: none;
+		color: $black;
+	}
+	&__email {
+		color: $gray;
+	}
+}
