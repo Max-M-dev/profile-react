@@ -1,0 +1,24 @@
+[
+	{
+		"id": 1,
+		"name": "Max",
+		"email": "max@example.com",
+		"profilePath": "max",
+		"accountContent": "Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+	},
+	{
+		"id": 2,
+		"name": "Анна",
+		"avatarUrl": "https://qph.cf2.quoracdn.net/main-qimg-81db30bf0c600d89d3352db8b7ef1977-lq",
+		"email": "anna@example.com",
+		"accountContent": "lorem"
+	},
+	{
+		"id": 3,
+		"name": "Мария",
+		"avatarUrl": "https://postila.ru/data/16/f4/62/29/16f46229d6df0ec75da2abd9a746b140f6292dd505aa5bd836dbedfaf15268ec.jpg",
+		"email": "mariya@mail.google.com",
+		"accountContent": "lorem",
+		"profilePath": "mariya"
+	}
+]

@@ -17,7 +17,7 @@ export function App() {
 						<Route index element={<ListUser />} />
 						<Route path="login" element={<Login />} />
 						<Route path="reg" element={<Reg />} />
-						<Route path="user" element={<Account />} />
+						<Route path="user/:user" element={<Account />} />
 						<Route path="*" element={<NotFound />} />
 					</Routes>
 				</main>
