@@ -1,27 +1,32 @@
 import React from "react";
+import { Button } from "@/ui_kit/button";
+import { selectClasses } from "@/utils";
 
 import classes from "./cover.module.scss";
 import { PropsForUiType } from "./types";
 
 export function CoverUi(props: PropsForUiType) {
-	const {} = props;
-	return (
-		<div className={classes["cover"]}>
-			<img
-				className={classes["cover__img"]}
-				src="https://img.freepik.com/premium-photo/yellow-hypnotic-abstract-lines-wallpaper-background-design-super-bright-colors-juicy-natural-texture_88135-40082.jpg?w=2000"
-				alt=""
-			/>
-			<button
-				className={`${classes["cover__button"]}
-			${classes["cover__button--upload"]}
-			button-default`}
-			>
+	const { src, isMyAcc } = props;
+	const toCls = selectClasses(classes);
+	const renderButton = () => {
+		if (src) {
+			return (
+				<Button className={toCls("cover__button cover__button--del")}>
+					Удалить
+				</Button>
+			);
+		}
+		return (
+			<Button className={toCls("cover__button cover__button--upload")}>
 				Загрузить
-			</button>
-			{/* <button className="cover__button cover__button--del button-default">
-				Удалить
-			</button> */}
+			</Button>
+		);
+	};
+
+	return (
+		<div className={toCls("cover")}>
+			{src && <img className={toCls("cover__img")} src={src} alt="" />}
+			{isMyAcc && renderButton()}
 		</div>
 	);
 }

@@ -1,0 +1,52 @@
+@import "../../scss/vars";
+.account {
+	&__cover {
+		height: 200px;
+		overflow: hidden;
+	}
+	&__body {
+		position: relative;
+		// padding-top: 85px;
+		padding-bottom: 100px;
+	}
+	&__content {
+		padding-left: 20vw;
+		padding-top: 85px;
+		@media screen and (max-width: 800px) {
+			padding: 0 15px;
+		}
+	}
+	&__content-head {
+		display: flex;
+		gap: 15px;
+		max-width: 784px;
+		@media screen and (max-width: 550px) {
+			flex-direction: column;
+		}
+	}
+	&__user-info {
+		flex: 1 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	&__edit-wrapper {
+		flex: 0 0 auto;
+	}
+	&__avatar {
+		position: absolute;
+		top: 0;
+		transform: translate(0px, -50%);
+	}
+
+	&__email {
+		color: $gray;
+	}
+	&__content-body {
+		padding-top: 30px;
+		max-width: 600px;
+	}
+	&__text {
+		padding-bottom: 60px;
+	}
+}

@@ -5,6 +5,7 @@ export type DataEntityType = {
 	email: string;
 	profilePath?: string;
 	accountContent?: string;
+	cover?: string;
 };
 
 export type DataType = Array<DataEntityType>;
