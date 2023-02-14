@@ -24,7 +24,7 @@ export function Reg() {
 	return (
 		<FormEntry title="Регистрация в Yoldi Agency">
 			<Input
-				icon="../../img/user.svg"
+				icon="/assets/user.svg"
 				type="text"
 				placeholder="Имя"
 				min="3"
@@ -33,7 +33,7 @@ export function Reg() {
 				{...attrName}
 			/>
 			<Input
-				icon="../../img/email.svg"
+				icon="/assets/email.svg"
 				type="email"
 				required
 				placeholder="E-mail"
@@ -42,7 +42,7 @@ export function Reg() {
 			/>
 			<div className="form-entry__input-password-wrapper">
 				<Input
-					icon="../../img/lock.svg"
+					icon="/assets/lock.svg"
 					type={isShowPassword ? "text" : "password"}
 					placeholder="Пароль"
 					autoComplete="current-password"

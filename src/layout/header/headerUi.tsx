@@ -27,7 +27,7 @@ export function headerUi(props: PropsForUiType) {
 		<header className={classes["header"] + " container"}>
 			<div className={classes["header__info-company"]}>
 				<Link to="/" className={classes["header__logo"]}>
-					<img className="img-responsive" src="./img/logo.svg" alt="" />
+					<img className="img-responsive" src="/assets/logo.svg" alt="" />
 				</Link>
 				<div className={classes["header__title"]}>
 					Разрабатываем и запускаем сложные веб проекты

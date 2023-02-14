@@ -17,19 +17,19 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		&:after {
-			content: url("../../img/picture.svg");
+			content: url("/assets/picture.svg");
 			line-height: 0px;
 			vertical-align: middle;
 			padding-left: 10px;
 		}
 		&--upload::before {
-			content: url("../../img/upload.svg");
+			content: url("/assets/upload.svg");
 			line-height: 0px;
 			vertical-align: middle;
 			padding-right: 10px;
 		}
 		&--del::before {
-			content: url("../../img/trash.svg");
+			content: url("/assets/trash.svg");
 			line-height: 0px;
 			vertical-align: middle;
 			padding-right: 10px;

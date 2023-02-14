@@ -23,7 +23,7 @@ export function Login() {
 		<FormEntry title="Вход в Yoldi Agency">
 			<Input
 				type="email"
-				icon="../../img/email.svg"
+				icon="/assets/email.svg"
 				placeholder="E-mail"
 				required
 				isValid={(val) => setIsValidInps({ ...isValidInps, email: val })}
@@ -33,7 +33,7 @@ export function Login() {
 			<div className="form-entry__input-password-wrapper">
 				<Input
 					className="form-entry__input-password"
-					icon="../../img/lock.svg"
+					icon="/assets/lock.svg"
 					type={isShowPassword ? "text" : "password"}
 					placeholder="Пароль"
 					autoComplete="current-password"

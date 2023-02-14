@@ -43,13 +43,13 @@
 }
 .button-icon-entry {
 	&::before {
-		content: url("../../img/entry.svg");
+		content: url("/assets/entry.svg");
 		@extend %button-icon-template;
 	}
 }
 .button-icon-edit {
 	&::before {
-		content: url("../../img/pen-solid.svg");
+		content: url("/assets/pen-solid.svg");
 		@extend %button-icon-template;
 	}
 }
