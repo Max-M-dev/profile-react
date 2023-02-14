@@ -2,7 +2,8 @@ import { useLayoutEffect, useState } from "react";
 import { FormEntry } from "@/components/formEntry";
 import { useValueInput } from "@/hooks/useValueInput";
 import { Button } from "@/ui_kit/button";
-import { Input } from "@/ui_kit/form/input";
+import { Form } from "@/ui_kit/form";
+const { Input } = Form;
 
 export function Login() {
 	const [valueEmail, attrEmail] = useValueInput();
