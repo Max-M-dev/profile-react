@@ -4,6 +4,9 @@
 @import "libs";
 @import "kit";
 
+input:invalid {
+	border: 1px solid salmon;
+}
 ::placeholder {
 	color: #666;
 }

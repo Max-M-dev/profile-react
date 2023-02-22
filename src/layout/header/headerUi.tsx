@@ -6,14 +6,17 @@ import { PropsForUiType } from "./types";
 import { Avatar } from "@/ui_kit/avatar";
 
 export function headerUi(props: PropsForUiType) {
-	const {} = props;
-	const isLogin = false;
+	const { userAuth } = props;
 	const auth = () => {
-		if (isLogin) {
+		if (userAuth) {
 			return (
 				<div className={classes["header__user"]}>
-					<div className={classes["header__user-name"]}>Владислав</div>
-					<Avatar value="В" size="small" />
+					<div className={classes["header__user-name"]}>{userAuth.name}</div>
+					<Avatar
+						src={userAuth.avatarUrl}
+						value={userAuth.name.charAt(0).toUpperCase()}
+						size="small"
+					/>
 				</div>
 			);
 		}

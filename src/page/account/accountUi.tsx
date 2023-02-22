@@ -9,7 +9,7 @@ import { PropsForUiType } from "./types";
 import { selectClasses } from "@/utils";
 
 export function AccountUi(props: PropsForUiType) {
-	const { userInfo, isMyAcc, logout } = props;
+	const { userInfo, isMyProfile, logout } = props;
 	const toCls = selectClasses(classes);
 
 	if (userInfo.status === "Error") {
@@ -26,12 +26,12 @@ export function AccountUi(props: PropsForUiType) {
 	const { name, email, avatarUrl, accountContent, cover } = userInfo.data;
 	return (
 		<div className={toCls("account")}>
-			<Cover src={cover} />
+			<Cover isMyProfile={isMyProfile} src={cover} />
 			<div className={toCls("account__body container")}>
 				<div className={toCls("account__content")}>
 					<Avatar
 						className={toCls("account__avatar")}
-						hover={isMyAcc}
+						hover={isMyProfile}
 						src={avatarUrl}
 						value={name.charAt(0)}
 						size="big"
@@ -42,7 +42,7 @@ export function AccountUi(props: PropsForUiType) {
 							<div className={toCls("account__email")}>{email}</div>
 						</div>
 						<div className={toCls("account__edit-wrapper")}>
-							{isMyAcc && (
+							{isMyProfile && (
 								<Button className={toCls("account__edit button-icon-edit")}>
 									Редактировать
 								</Button>
@@ -53,7 +53,7 @@ export function AccountUi(props: PropsForUiType) {
 						<div className={toCls("account__text")}>
 							{accountContent || "Тут еще нет записи."}
 						</div>
-						{isMyAcc && (
+						{isMyProfile && (
 							<Button
 								onClick={() => logout()}
 								className={toCls("account__logout button-icon-entry")}

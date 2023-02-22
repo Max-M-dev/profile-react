@@ -6,7 +6,7 @@ import classes from "./cover.module.scss";
 import { PropsForUiType } from "./types";
 
 export function CoverUi(props: PropsForUiType) {
-	const { src, isMyAcc } = props;
+	const { src, isMyProfile } = props;
 	const toCls = selectClasses(classes);
 	const renderButton = () => {
 		if (src) {
@@ -26,7 +26,7 @@ export function CoverUi(props: PropsForUiType) {
 	return (
 		<div className={toCls("cover")}>
 			{src && <img className={toCls("cover__img")} src={src} alt="" />}
-			{isMyAcc && renderButton()}
+			{isMyProfile && renderButton()}
 		</div>
 	);
 }

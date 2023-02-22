@@ -1,13 +1,13 @@
-import React, {FC} from 'react';
-import { PropsForUiType, PropsType } from './types';
+import React, { FC } from "react";
+import { useAuth } from "@/hooks/useAuth";
 
- export function headerLogic (Ui:FC<PropsForUiType>,props:PropsType){
+import { PropsForUiType, PropsType } from "./types";
+
+export function headerLogic(Ui: FC<PropsForUiType>, props: PropsType) {
+	const { userAuth } = useAuth();
 	const propsForUi = {
 		...props,
-		
+		userAuth,
 	};
-  return Ui(propsForUi);
-};
-
-
-
+	return Ui(propsForUi);
+}

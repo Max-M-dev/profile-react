@@ -1,6 +1,5 @@
 export type PropsType = {
 	src?: string;
+	isMyProfile: boolean;
 };
-export type PropsForUiType = PropsType & {
-	isMyAcc: boolean;
-};
+export type PropsForUiType = PropsType & {};

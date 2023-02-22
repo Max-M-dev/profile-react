@@ -1,20 +1,25 @@
 import React, { FC, useLayoutEffect, useState } from "react";
 import { useParams } from "react-router";
-import { useIsMyAcc } from "@/hooks/useIsMyAcc";
+
+import { useAuth } from "@/hooks/useAuth";
+import { getData } from "@/service/getData";
 
 import { PropsForUiType, PropsType, RequestUserInfo } from "./types";
-import { DataEntityType, DataType } from "public/data.types";
-import { useLogout } from "@/hooks/useLogout";
+import { DataType } from "public/data.types";
 
 export function AccountLogic(Ui: FC<PropsForUiType>, props: PropsType) {
 	const { user: currentPathProfile } = useParams();
+
 	const [userInfo, setUserInfo] = useState<RequestUserInfo>({
 		status: "Loading",
 	});
-	const isMyAcc = useIsMyAcc();
+	const auth = useAuth();
+	const { signOut } = auth;
+	const isMyProfile = Boolean(
+		currentPathProfile && auth.isMyProfile(currentPathProfile)
+	);
 	useLayoutEffect(() => {
-		fetch("/data.json")
-			.then((res) => res.json())
+		getData()
 			.then((users: DataType) => {
 				const res = users.find((user) => {
 					const idStr = String(user.id);
@@ -27,7 +32,6 @@ export function AccountLogic(Ui: FC<PropsForUiType>, props: PropsType) {
 				if (!res) {
 					throw new Error("Not found user");
 				}
-
 				return res;
 			})
 			.then((user) => setUserInfo({ ...userInfo, data: user, status: "Ok" }))
@@ -40,12 +44,11 @@ export function AccountLogic(Ui: FC<PropsForUiType>, props: PropsType) {
 			});
 	}, []);
 	const logout = () => {
-		useLogout();
-		location.reload();
+		signOut();
 	};
 	const propsForUi = {
 		userInfo,
-		isMyAcc,
+		isMyProfile,
 		logout,
 		...props,
 	};
