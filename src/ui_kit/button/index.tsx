@@ -12,7 +12,7 @@ export function Button({ theme, ...props }: PropsType) {
 function ButtonBase(props: PropsType) {
 	const { children, className, ...otherProps } = props;
 	return (
-		<button className={`${className}`} {...otherProps}>
+		<button className={className} {...otherProps}>
 			{children}
 		</button>
 	);

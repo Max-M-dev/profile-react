@@ -1,0 +1,16 @@
+@import "../../scss/vars";
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 0 0 72px;
+	width: 100%;
+	border-top: solid 1px $strokesSecondary;
+	&__content {
+		color: #838383;
+	}
+	&__link-login {
+		color: $black;
+		text-decoration: none;
+	}
+}

@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Avatar } from "@/ui_kit/avatar";
-import "./list_user.scss";
+import { selectClasses } from "@/utils";
+import classes from "./list_user.module.scss";
+
 import { PropsForUiType } from "./types";
 
 export function ListUserUi({ users, ...props }: PropsForUiType) {
+	const toCls = selectClasses(classes);
 	return (
-		<div className="list-user container">
-			<div className="list-user__title title">Список аккаунтов</div>
+		<div className={toCls("list-user container")}>
+			<div className={toCls("list-user__title title")}>Список аккаунтов</div>
 
-			<div className="list-user__content">
+			<div className={toCls("list-user__content")}>
 				{users.map((user) => {
 					const propsForEntiry = {
 						key: user.id,
@@ -39,6 +42,7 @@ function Entity({
 	email: string;
 	userPath?: string;
 }) {
+	const toCls = selectClasses(classes);
 	const renderAvatar = () => {
 		if (avatarUrl) {
 			return <Avatar src={avatarUrl} size="small" />;
@@ -48,13 +52,13 @@ function Entity({
 	};
 	const userLink = `user/${userPath || id}`;
 	return (
-		<div className="list-user__entity">
+		<div className={toCls("list-user__entity")}>
 			{renderAvatar()}
-			<div className="list-user__info">
-				<Link to={userLink} className="list-user__name">
+			<div className={toCls("list-user__info")}>
+				<Link to={userLink} className={toCls("list-user__name")}>
 					{name}
 				</Link>
-				<div className="list-user__email">{email}</div>
+				<div className={toCls("list-user__email")}>{email}</div>
 			</div>
 		</div>
 	);
